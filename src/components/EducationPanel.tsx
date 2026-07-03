@@ -4,10 +4,12 @@ export function EducationPanel() {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="w-full max-w-[520px] border border-[#6C7B8B] rounded-lg overflow-hidden">
+    <div className="relative w-full max-w-[520px]">
       <button
         onClick={() => setOpen((o) => !o)}
-        className="w-full flex items-center justify-between px-4 py-3 bg-[#f0fdf0] hover:bg-[#e0f9e0] transition-colors text-left"
+        className={`w-full flex items-center justify-between px-4 py-3 bg-[#f0fdf0] hover:bg-[#e0f9e0] transition-colors text-left border border-[#6C7B8B] ${
+          open ? 'rounded-t-lg' : 'rounded-lg'
+        }`}
         aria-expanded={open}
       >
         <span className="font-semibold text-[#4a7c4a] text-sm">
@@ -17,7 +19,7 @@ export function EducationPanel() {
       </button>
 
       {open && (
-        <div className="px-4 py-4 bg-white text-sm text-gray-700 space-y-3 leading-relaxed">
+        <div className="absolute left-0 right-0 top-full z-20 max-h-[70vh] overflow-y-auto border border-t-0 border-[#6C7B8B] rounded-b-lg bg-white shadow-lg px-4 py-4 text-sm text-gray-700 space-y-3 leading-relaxed">
           <p>
             The challenge: place <strong>8 queens</strong> on a chessboard so
             that no queen can attack any other. A queen attacks every square on

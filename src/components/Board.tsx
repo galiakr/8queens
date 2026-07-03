@@ -12,22 +12,43 @@ type Props = {
 };
 
 export function Board({ queens, threats, onCellClick, interactive }: Props) {
-  const queenSet = new Set(queens.map(q => `${q.col}_${q.row}`));
+  const queenSet = new Set(queens.map((q) => `${q.col}_${q.row}`));
 
   return (
-    <div className="flex flex-col items-center select-none">
+    <div
+      className="flex flex-col items-center select-none w-full max-w-[520px]"
+      style={
+        {
+          '--cell-size': 'clamp(28px, 11vw, 58px)',
+          '--label-size': 'clamp(18px, 4.5vw, 24px)',
+        } as React.CSSProperties
+      }
+    >
       {/* Column labels */}
-      <div className="flex ml-8 mb-1">
-        {FILES.map(f => (
-          <div key={f} className="w-[58px] text-center text-sm text-gray-500 font-medium border border-white">{f}</div>
+      <div
+        className="flex mb-1"
+        style={{ marginLeft: 'calc(var(--label-size) + 4px)' }}
+      >
+        {FILES.map((f) => (
+          <div
+            key={f}
+            className="w-[var(--cell-size)] text-center text-sm text-gray-500 font-medium border border-white"
+          >
+            {f}
+          </div>
         ))}
       </div>
 
       <div className="flex">
         {/* Row labels */}
-        <div className="flex flex-col mr-1">
-          {RANKS.map(r => (
-            <div key={r} className="h-[58px] w-6 flex items-center justify-center text-sm text-gray-500 font-medium border border-white">{r}</div>
+        <div className="flex flex-col">
+          {RANKS.map((r) => (
+            <div
+              key={r}
+              className="h-[var(--cell-size)] w-[var(--label-size)] flex items-center justify-center text-sm text-gray-500 font-medium border border-white"
+            >
+              {r}
+            </div>
           ))}
         </div>
 

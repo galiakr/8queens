@@ -2,7 +2,6 @@ type Props = {
   mode: string;
   solutionIndex: number;
   totalSolutions: number;
-  message: string;
   onClear: () => void;
   onSolve: () => void;
   onNext: () => void;
@@ -13,7 +12,6 @@ export function Controls({
   mode,
   solutionIndex,
   totalSolutions,
-  message,
   onClear,
   onSolve,
   onNext,
@@ -29,9 +27,6 @@ export function Controls({
 
   return (
     <div className="w-full max-w-[520px] space-y-3">
-      {/* Message */}
-      <p className="text-sm text-gray-600 min-h-[20px] text-center italic">{message}</p>
-
       {/* Main buttons */}
       <div className="flex gap-2 flex-wrap justify-center">
         <button className={btnSecondary} onClick={onClear}>

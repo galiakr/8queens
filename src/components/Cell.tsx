@@ -32,7 +32,7 @@ export function Cell({ col, row, isLight, hasQueen, threats, onClick, interactiv
       onClick={() => interactive && onClick(col, row)}
       onKeyDown={e => (e.key === 'Enter' || e.key === ' ') && interactive && onClick(col, row)}
       className={[
-        'w-[58px] h-[58px] flex items-center justify-center border border-white',
+        'w-[var(--cell-size)] h-[var(--cell-size)] flex items-center justify-center border border-white',
         'transition-colors duration-150 select-none',
         base,
         highlight,
@@ -43,7 +43,7 @@ export function Cell({ col, row, isLight, hasQueen, threats, onClick, interactiv
         <img
           src={`${import.meta.env.BASE_URL}squeen.png`}
           alt="queen"
-          className="w-9 h-9 object-contain pointer-events-none"
+          className="w-[70%] h-[70%] object-contain pointer-events-none"
         />
       )}
     </div>
