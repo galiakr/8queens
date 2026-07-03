@@ -41,7 +41,7 @@ export function Cell({ col, row, isLight, hasQueen, threats, onClick, interactiv
     >
       {hasQueen && (
         <img
-          src="/squeen.png"
+          src={`${import.meta.env.BASE_URL}squeen.png`}
           alt="queen"
           className="w-9 h-9 object-contain pointer-events-none"
         />
