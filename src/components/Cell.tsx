@@ -1,5 +1,3 @@
-import type { Queen } from '../hooks/useQueens';
-
 type Props = {
   col: number;
   row: number;
