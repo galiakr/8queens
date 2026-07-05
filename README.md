@@ -2,7 +2,7 @@
 
 An interactive React + TypeScript puzzle: place 8 queens on a chessboard so none can attack each other.
 
-🔗 **Live app:** _coming soon_
+🔗 **Live app:** [_https://galiakr.github.io/8queens/_](https://galiakr.github.io/8queens/)
 
 ---
 
