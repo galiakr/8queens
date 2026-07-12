@@ -32,11 +32,7 @@ export function Controls({
         <button className={btnSecondary} onClick={onClear}>
           Clear board
         </button>
-        <button
-          className={btnPrimary}
-          onClick={onSolve}
-          disabled={isSolving}
-        >
+        <button className={btnPrimary} onClick={onSolve} disabled={isSolving}>
           {isSolving ? 'Solving…' : 'Show solution'}
         </button>
       </div>

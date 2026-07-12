@@ -12,7 +12,15 @@ type Particle = {
   alpha: number;
 };
 
-const COLORS = ['#7CCD7C', '#98FB98', '#FFEC8B', '#FFB6C1', '#87CEEB', '#DDA0DD', '#FFA07A'];
+const COLORS = [
+  '#7CCD7C',
+  '#98FB98',
+  '#FFEC8B',
+  '#FFB6C1',
+  '#87CEEB',
+  '#DDA0DD',
+  '#FFA07A',
+];
 
 export function Confetti({ active }: { active: boolean }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -46,8 +54,15 @@ export function Confetti({ active }: { active: boolean }) {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       particlesRef.current = particlesRef.current
-        .map(p => ({ ...p, x: p.x + p.vx, y: p.y + p.vy, vy: p.vy + 0.05, rotation: p.rotation + p.rotationSpeed, alpha: p.y > canvas.height * 0.7 ? p.alpha - 0.02 : p.alpha }))
-        .filter(p => p.alpha > 0 && p.y < canvas.height + 20);
+        .map((p) => ({
+          ...p,
+          x: p.x + p.vx,
+          y: p.y + p.vy,
+          vy: p.vy + 0.05,
+          rotation: p.rotation + p.rotationSpeed,
+          alpha: p.y > canvas.height * 0.7 ? p.alpha - 0.02 : p.alpha,
+        }))
+        .filter((p) => p.alpha > 0 && p.y < canvas.height + 20);
 
       for (const p of particlesRef.current) {
         ctx.save();

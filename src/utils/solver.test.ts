@@ -27,12 +27,12 @@ describe('findAllSolutions', () => {
   });
 
   it('every solution has 8 queens', () => {
-    solutions.forEach(s => expect(s).toHaveLength(8));
+    solutions.forEach((s) => expect(s).toHaveLength(8));
   });
 
   it('every solution has queens in valid rows (0-7)', () => {
-    solutions.forEach(s => {
-      s.forEach(row => {
+    solutions.forEach((s) => {
+      s.forEach((row) => {
         expect(row).toBeGreaterThanOrEqual(0);
         expect(row).toBeLessThanOrEqual(7);
       });
@@ -40,13 +40,13 @@ describe('findAllSolutions', () => {
   });
 
   it('every solution has no two queens in the same row', () => {
-    solutions.forEach(s => {
+    solutions.forEach((s) => {
       expect(new Set(s).size).toBe(8);
     });
   });
 
   it('every solution has no diagonal conflicts', () => {
-    solutions.forEach(s => {
+    solutions.forEach((s) => {
       for (let c1 = 0; c1 < 8; c1++) {
         for (let c2 = c1 + 1; c2 < 8; c2++) {
           expect(Math.abs(c1 - c2)).not.toBe(Math.abs(s[c1] - s[c2]));
@@ -59,7 +59,7 @@ describe('findAllSolutions', () => {
 describe('buildThreatMap', () => {
   it('returns empty threat map when no queens placed', () => {
     const map = buildThreatMap([]);
-    map.forEach(row => row.forEach(cell => expect(cell).toBe(0)));
+    map.forEach((row) => row.forEach((cell) => expect(cell).toBe(0)));
   });
 
   it('marks the correct row as threatened', () => {

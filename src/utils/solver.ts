@@ -4,7 +4,7 @@ import type { Solution } from '../types';
 export function isSafe(placed: number[], col: number, row: number): boolean {
   for (let c = 0; c < col; c++) {
     const r = placed[c];
-    if (r === row) return false;           // same row
+    if (r === row) return false; // same row
     if (Math.abs(c - col) === Math.abs(r - row)) return false; // diagonal
   }
   return true;
@@ -36,13 +36,21 @@ export function findAllSolutions(): Solution[] {
 /** Build threat map for a given set of placed queens
  *  queens: array of {col, row} pairs
  *  returns 8x8 grid of threat counts */
-export function buildThreatMap(queens: { col: number; row: number }[]): number[][] {
+export function buildThreatMap(
+  queens: { col: number; row: number }[],
+): number[][] {
   const threats: number[][] = Array.from({ length: 8 }, () => Array(8).fill(0));
 
   for (const { col: qc, row: qr } of queens) {
     const dirs = [
-      [0, 1], [0, -1], [1, 0], [-1, 0],
-      [1, 1], [1, -1], [-1, 1], [-1, -1],
+      [0, 1],
+      [0, -1],
+      [1, 0],
+      [-1, 0],
+      [1, 1],
+      [1, -1],
+      [-1, 1],
+      [-1, -1],
     ];
     for (const [dr, dc] of dirs) {
       let r = qr + dr;

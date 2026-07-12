@@ -12,7 +12,9 @@ export function useQueens() {
   const [solutionIndex, setSolutionIndex] = useState(0);
   const [animatingQueens, setAnimatingQueens] = useState<Queen[]>([]);
   const [showConfetti, setShowConfetti] = useState(false);
-  const [message, setMessage] = useState('Place 8 queens so none can attack each other');
+  const [message, setMessage] = useState(
+    'Place 8 queens so none can attack each other',
+  );
   const solveTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const threats = buildThreatMap(queens);
@@ -26,65 +28,82 @@ export function useQueens() {
     setMessage('Place 8 queens so none can attack each other');
   }, []);
 
-  const toggleQueen = useCallback((col: number, row: number) => {
-    if (mode !== 'manual') return;
+  const toggleQueen = useCallback(
+    (col: number, row: number) => {
+      if (mode !== 'manual') return;
 
-    const existing = queens.find(q => q.col === col && q.row === row);
+      const existing = queens.find((q) => q.col === col && q.row === row);
 
-    if (existing) {
-      setQueens(prev => prev.filter(q => !(q.col === col && q.row === row)));
-      setMessage(`${queens.length - 1 === 0 ? 'Place 8 queens so none can attack each other' : `${8 - (queens.length - 1)} queens left`}`);
-      return;
-    }
+      if (existing) {
+        setQueens((prev) =>
+          prev.filter((q) => !(q.col === col && q.row === row)),
+        );
+        setMessage(
+          `${queens.length - 1 === 0 ? 'Place 8 queens so none can attack each other' : `${8 - (queens.length - 1)} queens left`}`,
+        );
+        return;
+      }
 
-    if (queens.length >= 8) {
-      setMessage('Board is full — remove a queen first');
-      return;
-    }
+      if (queens.length >= 8) {
+        setMessage('Board is full — remove a queen first');
+        return;
+      }
 
-    if (threats[row][col] > 0) {
-      setMessage("Can't place here — this cell is under attack");
-      return;
-    }
+      if (threats[row][col] > 0) {
+        setMessage("Can't place here — this cell is under attack");
+        return;
+      }
 
-    const next = [...queens, { col, row }];
-    setQueens(next);
+      const next = [...queens, { col, row }];
+      setQueens(next);
 
-    if (next.length === 8) {
-      setMessage('🎉 Solved! All 8 queens are safe!');
-      setShowConfetti(true);
-      setTimeout(() => setShowConfetti(false), 3500);
-    } else {
-      setMessage(`${8 - next.length} queen${8 - next.length === 1 ? '' : 's'} left`);
-    }
-  }, [queens, threats, mode]);
+      if (next.length === 8) {
+        setMessage('🎉 Solved! All 8 queens are safe!');
+        setShowConfetti(true);
+        setTimeout(() => setShowConfetti(false), 3500);
+      } else {
+        setMessage(
+          `${8 - next.length} queen${8 - next.length === 1 ? '' : 's'} left`,
+        );
+      }
+    },
+    [queens, threats, mode],
+  );
 
-  const animateSolution = useCallback((solution: Solution) => {
-    clear();
-    setMode('solving');
-    setMessage('Solving…');
+  const animateSolution = useCallback(
+    (solution: Solution) => {
+      clear();
+      setMode('solving');
+      setMessage('Solving…');
 
-    solution.forEach((row, col) => {
-      solveTimerRef.current = setTimeout(() => {
-        setAnimatingQueens(prev => {
-          const next = [...prev, { col, row }];
-          if (next.length === 8) {
-            setMessage('🎉 Solved! All 8 queens are safe!');
-            setShowConfetti(true);
-            setTimeout(() => setShowConfetti(false), 3500);
-            setMode('browsing');
-          }
-          return next;
-        });
-      }, col * 300);
-    });
-  }, [clear]);
+      solution.forEach((row, col) => {
+        solveTimerRef.current = setTimeout(() => {
+          setAnimatingQueens((prev) => {
+            const next = [...prev, { col, row }];
+            if (next.length === 8) {
+              setMessage('🎉 Solved! All 8 queens are safe!');
+              setShowConfetti(true);
+              setTimeout(() => setShowConfetti(false), 3500);
+              setMode('browsing');
+            }
+            return next;
+          });
+        }, col * 300);
+      });
+    },
+    [clear],
+  );
 
-  const showSolution = useCallback((index: number) => {
-    const idx = ((index % ALL_SOLUTIONS.length) + ALL_SOLUTIONS.length) % ALL_SOLUTIONS.length;
-    setSolutionIndex(idx);
-    animateSolution(ALL_SOLUTIONS[idx]);
-  }, [animateSolution]);
+  const showSolution = useCallback(
+    (index: number) => {
+      const idx =
+        ((index % ALL_SOLUTIONS.length) + ALL_SOLUTIONS.length) %
+        ALL_SOLUTIONS.length;
+      setSolutionIndex(idx);
+      animateSolution(ALL_SOLUTIONS[idx]);
+    },
+    [animateSolution],
+  );
 
   const nextSolution = useCallback(() => {
     showSolution(solutionIndex + 1);
