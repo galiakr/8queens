@@ -17,6 +17,11 @@ describe('isSafe', () => {
   it('returns true when position is safe', () => {
     expect(isSafe([0], 1, 2)).toBe(true);
   });
+
+  it('detects conflicts with any previously placed queen, not just the first', () => {
+    // queens at (col 0, row 0) and (col 1, row 2); (col 2, row 1) is diagonal to the second
+    expect(isSafe([0, 2], 2, 1)).toBe(false);
+  });
 });
 
 describe('findAllSolutions', () => {
@@ -43,6 +48,10 @@ describe('findAllSolutions', () => {
     solutions.forEach((s) => {
       expect(new Set(s).size).toBe(8);
     });
+  });
+
+  it('contains no duplicate solutions', () => {
+    expect(new Set(solutions.map((s) => s.join(','))).size).toBe(92);
   });
 
   it('every solution has no diagonal conflicts', () => {
@@ -76,5 +85,19 @@ describe('buildThreatMap', () => {
   it('does not mark the queen cell itself', () => {
     const map = buildThreatMap([{ col: 3, row: 3 }]);
     expect(map[3][3]).toBe(0);
+  });
+
+  it('marks the correct column as threatened', () => {
+    const map = buildThreatMap([{ col: 0, row: 0 }]);
+    expect(map[1][0]).toBeGreaterThan(0);
+  });
+
+  it('counts threats from multiple queens on a shared cell', () => {
+    const map = buildThreatMap([
+      { col: 0, row: 0 },
+      { col: 7, row: 0 },
+    ]);
+    // (col 3, row 0) sits on the shared row, attacked by both queens
+    expect(map[0][3]).toBe(2);
   });
 });

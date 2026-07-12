@@ -69,5 +69,16 @@ npm run test:coverage # with coverage
 - [ ] Add screenshot/GIF to README
 - [x] Add LICENSE (MIT)
 - [x] Add security workflow (gitleaks + npm audit)
-- [ ] Run the a11y skill against the live app and record results here
-- [ ] Run the review-tests skill against solver.test.ts and record results here
+- [x] Run the a11y skill against the live app and record results here
+  - 2026-07-12, axe-core 4.12 (WCAG 2.1 AA): initial run found 13 serious
+    `color-contrast` nodes — low-opacity ink text (`text-ink/25`–`/60`) on the
+    cream/parchment paper surfaces fell below 4.5:1. Fixed by raising all
+    sub-threshold ink text to `text-ink/70` (≈6:1). Re-run: **0 violations,
+    38 passes**. Automated checks only cover ~30–40% of issues; screen-reader
+    and keyboard-only passes still recommended.
+- [x] Run the review-tests skill against solver.test.ts and record results here
+  - 2026-07-12: 0 critical, 3 warnings, 1 info. Gaps found and closed with 4
+    new tests (17 total now): column-axis threats were untested, threat
+    *counts* (the 1 vs 2+ distinction the legend relies on) were untested,
+    `findAllSolutions` had no duplicate check, and `isSafe` never saw a
+    multi-queen `placed` array.
