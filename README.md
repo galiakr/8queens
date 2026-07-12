@@ -6,6 +6,16 @@ An interactive React + TypeScript puzzle: place 8 queens on a chessboard so none
 
 ---
 
+## Screenshots
+
+<img width="720" alt="Mid-game: two queens placed, a blunder recorded as Qd2?? in red pencil on the scoresheet" src="docs/screenshots/desktop-play.png" />
+
+<img width="720" alt="Solved: the solver has filled the scoresheet, 1–0, confetti falling" src="docs/screenshots/desktop-solved.png" />
+
+<img width="280" alt="Mobile view: board above the scoresheet" src="docs/screenshots/mobile.png" />
+
+---
+
 ## What it does
 
 - **Manual play** click to place queens, threatened squares highlight in real time

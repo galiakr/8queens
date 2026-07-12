@@ -66,7 +66,7 @@ npm run test:coverage # with coverage
 - [x] Add husky hooks (pre-commit lint, pre-push test)
 - [x] Add GitHub Actions CI (`.github/workflows/ci.yml`)
 - [x] Already deployed to GitHub Pages
-- [ ] Add screenshot/GIF to README
+- [x] Add screenshot/GIF to README (`docs/screenshots/`, captured 2026-07-12)
 - [x] Add LICENSE (MIT)
 - [x] Add security workflow (gitleaks + npm audit)
 - [x] Run the a11y skill against the live app and record results here
