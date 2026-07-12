@@ -11,14 +11,14 @@ export function EducationPanel() {
         className="flex w-full items-center justify-between rounded-sm px-5 py-4 text-left transition-colors hover:bg-ink/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2 focus-visible:ring-offset-parchment"
       >
         <span>
-          <span className="block font-mono text-[11px] uppercase tracking-[0.18em] text-ink/60">
+          <span className="block font-mono text-[11px] uppercase tracking-[0.18em] text-ink/70">
             From the archive
           </span>
           <span className="mt-1 block font-display text-base font-semibold">
             What is the Eight Queens puzzle?
           </span>
         </span>
-        <span aria-hidden="true" className="font-mono text-lg text-ink/60">
+        <span aria-hidden="true" className="font-mono text-lg text-ink/70">
           {open ? '−' : '+'}
         </span>
       </button>
@@ -69,7 +69,7 @@ export function EducationPanel() {
             </ul>
           </div>
 
-          <p className="flex items-baseline justify-between font-mono text-[11px] text-ink/60">
+          <p className="flex items-baseline justify-between font-mono text-[11px] text-ink/70">
             <a
               href="https://en.wikipedia.org/wiki/Eight_queens_puzzle"
               target="_blank"

@@ -55,7 +55,7 @@ export function Scoresheet({
     <div className="rounded-sm bg-cream text-ink shadow-[0_4px_18px_rgba(0,0,0,0.45)] lg:-rotate-[0.4deg]">
       {/* Sheet header */}
       <div className="flex items-center justify-between px-5 pb-3 pt-4">
-        <h2 className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink/60">
+        <h2 className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink/70">
           Scoresheet
         </h2>
         <div
@@ -86,7 +86,7 @@ export function Scoresheet({
             key={i}
             className="flex items-baseline gap-2 border-b border-ink/10 py-1.5"
           >
-            <span className="w-6 shrink-0 text-right font-mono text-xs text-ink/40">
+            <span className="w-6 shrink-0 text-right font-mono text-xs text-ink/70">
               {i + 1}.
             </span>
             <span
@@ -100,7 +100,7 @@ export function Scoresheet({
               <span
                 className={`text-xs italic ${
                   entry.tone === 'neutral'
-                    ? 'text-ink/50'
+                    ? 'text-ink/70'
                     : toneText[entry.tone]
                 }`}
               >
@@ -115,7 +115,7 @@ export function Scoresheet({
             aria-hidden="true"
             className="flex items-baseline gap-2 border-b border-ink/10 py-1.5"
           >
-            <span className="w-6 shrink-0 text-right font-mono text-xs text-ink/25">
+            <span className="w-6 shrink-0 text-right font-mono text-xs text-ink/70">
               {log.length + i + 1}.
             </span>
             <span className="font-mono text-sm">&nbsp;</span>
@@ -147,10 +147,10 @@ export function Scoresheet({
       {/* Arrangements — the solver's catalogue */}
       <div className="px-5 py-4">
         <div className="flex items-baseline justify-between">
-          <h2 className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink/60">
+          <h2 className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink/70">
             Arrangements
           </h2>
-          <p className="font-mono text-xs text-ink/60">
+          <p className="font-mono text-xs text-ink/70">
             {inSolutions
               ? `${solutionIndex + 1} / ${totalSolutions}`
               : `${totalSolutions} catalogued`}
@@ -195,7 +195,7 @@ export function Scoresheet({
             active={solutionIndex}
             lit={inSolutions}
           />
-          <p className="mt-3 text-center font-mono text-[11px] text-ink/50">
+          <p className="mt-3 text-center font-mono text-[11px] text-ink/70">
             Every dot is one valid arrangement.
           </p>
         </div>
