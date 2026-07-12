@@ -29,8 +29,6 @@ npm run dev
 
 Open [http://localhost:5173](http://localhost:5173).
 
-Copy `squeen.png` from the original repo into `/public/squeen.png`.
-
 ## Running tests
 
 ```bash

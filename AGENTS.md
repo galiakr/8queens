@@ -4,8 +4,8 @@ A React + TypeScript + Tailwind rewrite of the classic 8 Queens chess puzzle. Bu
 
 ## What it does
 
-- Manual placement — click cells to place/remove queens, threat highlighting shows unsafe squares
-- Animated auto-solver — watches backtracking algorithm place queens one by one
+- Manual placement: click cells to place/remove queens, threat highlighting shows unsafe squares
+- Animated auto-solver: watches backtracking algorithm place queens one by one
 - Browse all 92 solutions with prev/next navigation
 - Confetti celebration when all 8 queens are placed safely
 - Collapsible educational panel explaining the puzzle and backtracking
@@ -43,10 +43,10 @@ src/
 
 - No `any` in TypeScript
 - All interactive elements must have aria-labels and keyboard support
-- The solver finds all 92 solutions on mount (once) — do not re-run on every render
+- The solver finds all 92 solutions on mount (once). Do not re-run on every render
 - `buildThreatMap` does not mark the queen's own cell as threatened
-- Animation speed: 300ms per queen — do not change without updating tests
-- The queen image is at `/public/squeen.png` — do not move it
+- Animation speed: 300ms per queen. Do not change without updating tests
+- The queen image is at `/public/squeen.png`. Do not move it
 
 ## Commands
 
@@ -61,8 +61,12 @@ npm run test:coverage # with coverage
 
 ## Known issues / current focus
 
-- [ ] Add CLAUDE.md GitHub Copilot instructions
-- [ ] Add husky hooks (pre-commit lint, pre-push test)
-- [ ] Add GitHub Actions CI
-- [ ] Deploy to Vercel and add live link to README
+- [x] Add GitHub Copilot instructions (`.github/copilot-instructions.md`)
+- [x] Add husky hooks (pre-commit lint, pre-push test)
+- [x] Add GitHub Actions CI (`.github/workflows/ci.yml`)
+- [x] Already deployed to GitHub Pages
 - [ ] Add screenshot/GIF to README
+- [x] Add LICENSE (MIT)
+- [x] Add security workflow (gitleaks + npm audit)
+- [ ] Run the a11y skill against the live app and record results here
+- [ ] Run the review-tests skill against solver.test.ts and record results here
