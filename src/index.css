@@ -1,3 +1,39 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  html {
+    color-scheme: dark;
+  }
+  body {
+    @apply bg-ink font-sans text-cream antialiased;
+  }
+  ::selection {
+    @apply bg-mint text-ink;
+  }
+}
+
+@keyframes queen-pop {
+  from {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.12);
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.queen-pop {
+  animation: queen-pop 260ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .queen-pop {
+    animation: none;
+  }
+}

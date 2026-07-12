@@ -25,7 +25,8 @@ src/
     App.tsx             ← root layout
     Board.tsx           ← 8x8 grid with labels
     Cell.tsx            ← individual cell (queen, threat, highlight state)
-    Controls.tsx        ← clear / solve / prev / next buttons
+    Scoresheet.tsx      ← paper scoresheet: move log, clear/solve/prev/next + dot map
+    SolutionDots.tsx    ← 92-dot solution map (one dot per solution)
     EducationPanel.tsx  ← collapsible explanation
     Confetti.tsx        ← canvas confetti animation
   hooks/

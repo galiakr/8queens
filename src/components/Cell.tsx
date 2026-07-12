@@ -20,7 +20,7 @@ export function Cell({
   const base = isLight ? 'bg-[#98FB98]' : 'bg-[#7CCD7C]';
 
   const highlight = hasQueen
-    ? 'bg-white border-2 border-[#CD8C95]'
+    ? 'bg-black border-2 border-[#CD8C95]'
     : threats === 1
       ? isLight
         ? 'bg-[#FFEC8B] border-[#CDBE70]'
@@ -54,7 +54,7 @@ export function Cell({
         <img
           src={`${import.meta.env.BASE_URL}squeen.png`}
           alt="queen"
-          className="w-[70%] h-[70%] object-contain pointer-events-none"
+          className="queen-pop w-[94%] h-[94%] object-contain pointer-events-none"
         />
       )}
     </div>

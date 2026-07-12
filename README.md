@@ -2,7 +2,7 @@
 
 An interactive React + TypeScript puzzle: place 8 queens on a chessboard so none can attack each other.
 
-🔗 **Live app:** [_https://galiakr.github.io/8queens/_](https://galiakr.github.io/8queens/)
+**Live app:** [_https://galiakr.github.io/8queens/_](https://galiakr.github.io/8queens/)
 
 ---
 
@@ -38,7 +38,7 @@ npm run test:coverage # with coverage report
 
 ## Original version
 
-This is a rewrite of an [older vanilla JS version](https://github.com/galiakr/8queens/tree/vanillajs). The backtracking algorithm is preserved from the original.
+This is a rewrite of an [_older vanilla JS version_](https://github.com/galiakr/8queens/tree/vanillajs). The backtracking algorithm is preserved from the original.
 
 ## What changed in the rewrite
 

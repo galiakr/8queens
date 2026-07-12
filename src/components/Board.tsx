@@ -19,7 +19,7 @@ export function Board({ queens, threats, onCellClick, interactive }: Props) {
       className="flex flex-col items-center select-none w-full max-w-[520px]"
       style={
         {
-          '--cell-size': 'clamp(28px, 11vw, 58px)',
+          '--cell-size': 'clamp(28px, calc((100vw - 52px) / 8), 58px)',
           '--label-size': 'clamp(18px, 4.5vw, 24px)',
         } as React.CSSProperties
       }
@@ -32,7 +32,7 @@ export function Board({ queens, threats, onCellClick, interactive }: Props) {
         {FILES.map((f) => (
           <div
             key={f}
-            className="w-[var(--cell-size)] text-center text-sm text-gray-500 font-medium border border-white"
+            className="w-[var(--cell-size)] text-center font-mono text-xs text-sage"
           >
             {f}
           </div>
@@ -45,7 +45,7 @@ export function Board({ queens, threats, onCellClick, interactive }: Props) {
           {RANKS.map((r) => (
             <div
               key={r}
-              className="h-[var(--cell-size)] w-[var(--label-size)] flex items-center justify-center text-sm text-gray-500 font-medium border border-white"
+              className="h-[var(--cell-size)] w-[var(--label-size)] flex items-center justify-center font-mono text-xs text-sage"
             >
               {r}
             </div>
