@@ -1,3 +1,5 @@
+import { t } from '../i18n';
+
 type Props = {
   col: number;
   row: number;
@@ -19,6 +21,13 @@ export function Cell({
 }: Props) {
   const base = isLight ? 'bg-[#98FB98]' : 'bg-[#7CCD7C]';
 
+  const ariaKey = hasQueen
+    ? 'cell.aria_queen'
+    : threats > 0
+      ? 'cell.aria_threatened'
+      : 'cell.aria_empty';
+  const ariaLabel = t(ariaKey, { col: col + 1, row: row + 1 });
+
   const highlight = hasQueen
     ? 'bg-black border-2 border-[#CD8C95]'
     : threats === 1
@@ -34,7 +43,7 @@ export function Cell({
   return (
     <div
       role="gridcell"
-      aria-label={`Column ${col + 1}, Row ${row + 1}${hasQueen ? ', queen' : threats > 0 ? ', threatened' : ''}`}
+      aria-label={ariaLabel}
       tabIndex={interactive ? 0 : -1}
       onClick={() => interactive && onClick(col, row)}
       onKeyDown={(e) =>

@@ -31,6 +31,7 @@ src/
     Confetti.tsx        ← canvas confetti animation
   hooks/
     useQueens.ts        ← all game state and logic
+  i18n.ts               ← t() token lookup; reads tokens/locales/en.json
   utils/
     solver.ts           ← backtracking algorithm, findAllSolutions(), buildThreatMap()
     solver.test.ts      ← unit tests for solver
@@ -48,6 +49,11 @@ src/
 - `buildThreatMap` does not mark the queen's own cell as threatened
 - Animation speed: 300ms per queen. Do not change without updating tests
 - The queen image is at `/public/squeen.png`. Do not move it
+- User-facing text: `tokens/tokens.csv` is the source of truth; `tokens/locales/*.json`
+  are generated (`python tokens/generate.py tokens/tokens.csv --out tokens/locales`) —
+  never hand-edit the JSON. Read strings via `t()` from `src/i18n.ts`. All UI text is
+  migrated (components, App, useQueens messages); no hard-coded strings remain. Education
+  panel emphasis uses `**bold**`/`*italic*` in the CSV, rendered by `RichText.tsx`
 
 ## Commands
 
