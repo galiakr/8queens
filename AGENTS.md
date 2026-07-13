@@ -66,7 +66,7 @@ npm run test:coverage # with coverage
 - [x] Add husky hooks (pre-commit lint, pre-push test)
 - [x] Add GitHub Actions CI (`.github/workflows/ci.yml`)
 - [x] Already deployed to GitHub Pages
-- [x] Add screenshot/GIF to README (`docs/screenshots/`, captured 2026-07-12)
+- [x] Add screenshot/GIF to README (`docs/screenshots/`)
 - [x] Add LICENSE (MIT)
 - [x] Add security workflow (gitleaks + npm audit)
 - [x] Run the a11y skill against the live app and record results here
@@ -79,6 +79,12 @@ npm run test:coverage # with coverage
 - [x] Run the review-tests skill against solver.test.ts and record results here
   - 2026-07-12: 0 critical, 3 warnings, 1 info. Gaps found and closed with 4
     new tests (17 total now): column-axis threats were untested, threat
-    *counts* (the 1 vs 2+ distinction the legend relies on) were untested,
+    _counts_ (the 1 vs 2+ distinction the legend relies on) were untested,
     `findAllSolutions` had no duplicate check, and `isSafe` never saw a
     multi-queen `placed` array.
+  - 2026-07-13, coverage pass: v8 reported a hollow "100%" because
+    `coverage` has no `include`/`all`, so only `solver.ts` (the one imported
+    file) is measured — 11 of 12 source files are invisible and the 80%
+    threshold passes vacuously. Filed as GitHub issues: #6 (useQueens hook
+    untested), #7 (no component tests), #8 (coverage config doesn't measure
+    untested files). All assigned to @galiakr, label `tests`.
