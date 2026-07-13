@@ -1,0 +1,47 @@
+{
+  "a11y": {
+    "next": "הפתרון הבא",
+    "prev": "הפתרון הקודם",
+    "tally": "{count} מתוך 8 מלכות הוצבו"
+  },
+  "app": {
+    "eyebrow": "חידת שחמט · 1848",
+    "source_link": "קוד המקור ב-GitHub",
+    "title": "שמונה מלכות"
+  },
+  "board": {
+    "aria": "לוח שמונה מלכות"
+  },
+  "edu": {
+    "eyebrow": "מהארכיון",
+    "facts_title": "הידעתם?",
+    "title": "מהי חידת שמונה המלכות?",
+    "wikipedia": "קראו עוד בוויקיפדיה"
+  },
+  "legend": {
+    "no_threat": "ללא איום",
+    "threat_many": "מאוימת ע\"י 2+ מלכות",
+    "threat_one": "מאוימת ע\"י מלכה אחת"
+  },
+  "log": {
+    "retired": "הוסרה",
+    "under_attack": "תחת מתקפה"
+  },
+  "scoresheet": {
+    "arrangements": "סידורים",
+    "catalogued": "{count} בקטלוג",
+    "clear": "נקה לוח",
+    "counter": "מס׳ {index} מתוך {total}",
+    "dot_caption": "כל נקודה היא סידור תקין אחד.",
+    "heading": "דף ניקוד",
+    "show_solution": "הצג פתרון",
+    "solving": "מציב מלכות…"
+  },
+  "status": {
+    "board_full": "הלוח מלא — הסירו מלכה תחילה",
+    "solved": "נפתר! כל 8 המלכות מוגנות!",
+    "solving": "פותר…",
+    "start": "הציבו 8 מלכות כך שאף אחת לא תתקוף אחרת",
+    "under_attack": "אי אפשר להציב כאן — התא נתון למתקפה"
+  }
+}

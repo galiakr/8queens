@@ -1,0 +1,46 @@
+key,description,en,he
+app.eyebrow,Small label above the title in the header,A chess puzzle | est. 1848,חידת שחמט · 1848
+app.title,Main page title,Eight Queens,שמונה מלכות
+app.tagline,Subtitle under the title. 'The table keeps score' is an idiom — translate the meaning,"Place eight queens so no two share a row, a column, or a diagonal. The table keeps score.",
+app.source_link,Footer link to the GitHub repo,source on GitHub,קוד המקור ב-GitHub
+legend.no_threat,Board legend: a safe square,No threat,ללא איום
+legend.threat_one,Board legend: square attacked by exactly one queen,Threatened by 1 queen,"מאוימת ע""י מלכה אחת"
+legend.threat_many,Board legend: square attacked by two or more queens,Threatened by 2+ queens,"מאוימת ע""י 2+ מלכות"
+scoresheet.heading,Heading of the scoresheet card,Scoresheet,דף ניקוד
+scoresheet.clear,Button that empties the board,Clear board,נקה לוח
+scoresheet.arrangements,Heading of the solutions section,Arrangements,סידורים
+scoresheet.catalogued,Count of total solutions. {count} is the number 92,{count} catalogued,{count} בקטלוג
+scoresheet.solving,Solve button label while the animation runs,Placing queens…,מציב מלכות…
+scoresheet.show_solution,Button that plays a solution,Show a solution,הצג פתרון
+scoresheet.prev,Previous-solution button. Arrow flips for RTL — needs review,← Prev,
+scoresheet.next,Next-solution button. Arrow flips for RTL — needs review,Next →,
+scoresheet.counter,Which solution is shown. {index} and {total} are numbers,No. {index} of {total},מס׳ {index} מתוך {total}
+scoresheet.dot_caption,Caption under the 92-dot solution map,Every dot is one valid arrangement.,כל נקודה היא סידור תקין אחד.
+status.start,Status before any queen is placed,Place 8 queens so none can attack each other,הציבו 8 מלכות כך שאף אחת לא תתקוף אחרת
+status.queens_left_one,"Remaining queens, singular (count = 1). {count} is a number",{count} queen left,
+status.queens_left_other,"Remaining queens, plural. {count} is a number. Hebrew has its own plural/gender forms — needs review",{count} queens left,
+status.board_full,Shown when trying to place a 9th queen,Board is full — remove a queen first,הלוח מלא — הסירו מלכה תחילה
+status.under_attack,Shown when clicking an attacked square,Can't place here — this cell is under attack,אי אפשר להציב כאן — התא נתון למתקפה
+status.solved,Win message when all 8 are safely placed,🎉 Solved! All 8 queens are safe!,🎉 נפתר! כל 8 המלכות מוגנות!
+status.solving,Status while the solver animates,Solving…,פותר…
+log.retired,Scoresheet note when a queen is removed,retired,הוסרה
+log.under_attack,Scoresheet note on a rejected (blundered) placement,under attack,תחת מתקפה
+edu.eyebrow,Label above the archive panel title,From the archive,מהארכיון
+edu.title,Collapsible education panel title,What is the Eight Queens puzzle?,מהי חידת שמונה המלכות?
+edu.intro,"Opening paragraph. **..** = bold, *..* = italic","The challenge: place **8 queens** on a chessboard so that no queen can attack any other. A queen attacks every square on her row, column, and both diagonals.",
+edu.backtracking_title,Subheading in the education panel,How the solver works — backtracking,
+edu.backtracking_body,Explains backtracking. *..* = italic,"The computer places queens one column at a time. If a position is safe, it tries the next column. If it gets stuck, it *backtracks* — removes the last queen and tries a different row. This continues until all 8 queens are placed safely.",
+edu.facts_title,Subheading for the trivia list,Did you know?,הידעתם?
+edu.fact_92,Trivia item. **..** = bold,There are exactly **92 solutions** to the Eight Queens puzzle,
+edu.fact_12,Trivia item. **..** = bold,"If you count rotations and reflections as the same, there are only **12 truly different** solutions",
+edu.fact_1848,"Trivia item. *..* italic, **..** bold. Berliner Schachzeitung is a proper noun",The puzzle was first published in the *Berliner Schachzeitung* in **1848**,
+edu.fact_hard,Trivia item. *..* = italic,"For an n×n board with n queens, finding solutions gets *very* hard as n grows. It's used to teach algorithms in computer science",
+edu.wikipedia,Link text to the Wikipedia article,Read more on Wikipedia,קראו עוד בוויקיפדיה
+edu.attribution,Attribution line on the archive clipping,"Schachzeitung, 1848",
+board.aria,Accessible name of the board grid,8 queens chess board,לוח שמונה מלכות
+a11y.prev,Aria-label for the previous-solution button,Previous solution,הפתרון הקודם
+a11y.next,Aria-label for the next-solution button,Next solution,הפתרון הבא
+a11y.tally,Aria-label for the queen tally chips. {count} is 0-8,{count} of 8 queens placed,{count} מתוך 8 מלכות הוצבו
+cell.aria_empty,"Cell aria-label, empty square. {col}/{row} are 1-8","Column {col}, Row {row}",
+cell.aria_queen,"Cell aria-label, has a queen. {col}/{row} are 1-8","Column {col}, Row {row}, queen",
+cell.aria_threatened,"Cell aria-label, attacked square. {col}/{row} are 1-8","Column {col}, Row {row}, threatened",

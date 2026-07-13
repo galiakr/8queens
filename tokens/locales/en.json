@@ -1,0 +1,65 @@
+{
+  "a11y": {
+    "next": "Next solution",
+    "prev": "Previous solution",
+    "tally": "{count} of 8 queens placed"
+  },
+  "app": {
+    "eyebrow": "A chess puzzle | est. 1848",
+    "source_link": "source on GitHub",
+    "tagline": "Place eight queens so no two share a row, a column, or a diagonal. The table keeps score.",
+    "title": "Eight Queens"
+  },
+  "board": {
+    "aria": "8 queens chess board"
+  },
+  "cell": {
+    "aria_empty": "Column {col}, Row {row}",
+    "aria_queen": "Column {col}, Row {row}, queen",
+    "aria_threatened": "Column {col}, Row {row}, threatened"
+  },
+  "edu": {
+    "attribution": "Schachzeitung, 1848",
+    "backtracking_body": "The computer places queens one column at a time. If a position is safe, it tries the next column. If it gets stuck, it *backtracks* — removes the last queen and tries a different row. This continues until all 8 queens are placed safely.",
+    "backtracking_title": "How the solver works — backtracking",
+    "eyebrow": "From the archive",
+    "fact_12": "If you count rotations and reflections as the same, there are only **12 truly different** solutions",
+    "fact_1848": "The puzzle was first published in the *Berliner Schachzeitung* in **1848**",
+    "fact_92": "There are exactly **92 solutions** to the Eight Queens puzzle",
+    "fact_hard": "For an n×n board with n queens, finding solutions gets *very* hard as n grows. It's used to teach algorithms in computer science",
+    "facts_title": "Did you know?",
+    "intro": "The challenge: place **8 queens** on a chessboard so that no queen can attack any other. A queen attacks every square on her row, column, and both diagonals.",
+    "title": "What is the Eight Queens puzzle?",
+    "wikipedia": "Read more on Wikipedia"
+  },
+  "legend": {
+    "no_threat": "No threat",
+    "threat_many": "Threatened by 2+ queens",
+    "threat_one": "Threatened by 1 queen"
+  },
+  "log": {
+    "retired": "retired",
+    "under_attack": "under attack"
+  },
+  "scoresheet": {
+    "arrangements": "Arrangements",
+    "catalogued": "{count} catalogued",
+    "clear": "Clear board",
+    "counter": "No. {index} of {total}",
+    "dot_caption": "Every dot is one valid arrangement.",
+    "heading": "Scoresheet",
+    "next": "Next →",
+    "prev": "← Prev",
+    "show_solution": "Show a solution",
+    "solving": "Placing queens…"
+  },
+  "status": {
+    "board_full": "Board is full — remove a queen first",
+    "queens_left_one": "{count} queen left",
+    "queens_left_other": "{count} queens left",
+    "solved": "Solved! All 8 queens are safe!",
+    "solving": "Solving…",
+    "start": "Place 8 queens so none can attack each other",
+    "under_attack": "Can't place here — this cell is under attack"
+  }
+}

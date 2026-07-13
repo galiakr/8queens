@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { SolutionDots } from './SolutionDots';
+import { t } from '../i18n';
 import type { LogEntry, MessageTone } from '../types';
 
 type Props = {
@@ -56,11 +57,11 @@ export function Scoresheet({
       {/* Sheet header */}
       <div className="flex items-center justify-between px-5 pb-3 pt-4">
         <h2 className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink/70">
-          Scoresheet
+          {t('scoresheet.heading')}
         </h2>
         <div
           role="img"
-          aria-label={`${queensPlaced} of 8 queens placed`}
+          aria-label={t('a11y.tally', { count: queensPlaced })}
           className="flex gap-1"
         >
           {Array.from({ length: 8 }, (_, i) => (
@@ -137,7 +138,7 @@ export function Scoresheet({
           disabled={mode === 'manual' && queensPlaced === 0}
           className={`${btnForm} w-full border border-ink/30 text-ink hover:bg-ink/5`}
         >
-          Clear board
+          {t('scoresheet.clear')}
         </button>
       </div>
 
@@ -148,12 +149,12 @@ export function Scoresheet({
       <div className="px-5 py-4">
         <div className="flex items-baseline justify-between">
           <h2 className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink/70">
-            Arrangements
+            {t('scoresheet.arrangements')}
           </h2>
           <p className="font-mono text-xs text-ink/70">
             {inSolutions
               ? `${solutionIndex + 1} / ${totalSolutions}`
-              : `${totalSolutions} catalogued`}
+              : t('scoresheet.catalogued', { count: totalSolutions })}
           </p>
         </div>
 
@@ -162,7 +163,7 @@ export function Scoresheet({
           disabled={isSolving}
           className={`${btnForm} mt-3 w-full bg-ink text-cream hover:bg-ink/85`}
         >
-          {isSolving ? 'Placing queens…' : 'Show a solution'}
+          {isSolving ? t('scoresheet.solving') : t('scoresheet.show_solution')}
         </button>
 
         {inSolutions && (
@@ -171,20 +172,23 @@ export function Scoresheet({
               className={`${btnForm} border border-ink/30 text-ink hover:bg-ink/5`}
               onClick={onPrev}
               disabled={isSolving}
-              aria-label="Previous solution"
+              aria-label={t('a11y.prev')}
             >
-              ← Prev
+              {t('scoresheet.prev')}
             </button>
             <span className="font-mono text-xs text-ink/70">
-              No. {solutionIndex + 1} of {totalSolutions}
+              {t('scoresheet.counter', {
+                index: solutionIndex + 1,
+                total: totalSolutions,
+              })}
             </span>
             <button
               className={`${btnForm} border border-ink/30 text-ink hover:bg-ink/5`}
               onClick={onNext}
               disabled={isSolving}
-              aria-label="Next solution"
+              aria-label={t('a11y.next')}
             >
-              Next →
+              {t('scoresheet.next')}
             </button>
           </div>
         )}
@@ -196,7 +200,7 @@ export function Scoresheet({
             lit={inSolutions}
           />
           <p className="mt-3 text-center font-mono text-[11px] text-ink/70">
-            Every dot is one valid arrangement.
+            {t('scoresheet.dot_caption')}
           </p>
         </div>
       </div>

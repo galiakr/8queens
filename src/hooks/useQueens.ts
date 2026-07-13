@@ -1,5 +1,6 @@
 import { useState, useCallback, useRef } from 'react';
 import { findAllSolutions, buildThreatMap } from '../utils/solver';
+import { t } from '../i18n';
 import type { GameMode, LogEntry, MessageTone, Solution } from '../types';
 
 export type Queen = { col: number; row: number };
@@ -8,15 +9,19 @@ const ALL_SOLUTIONS = findAllSolutions(); // computed once
 
 const square = (col: number, row: number) => `${'abcdefgh'[col]}${row + 1}`;
 
+// Remaining queens to place, with singular/plural handled via separate tokens.
+const queensLeftMsg = (left: number) =>
+  t(left === 1 ? 'status.queens_left_one' : 'status.queens_left_other', {
+    count: left,
+  });
+
 export function useQueens() {
   const [queens, setQueens] = useState<Queen[]>([]);
   const [mode, setMode] = useState<GameMode>('manual');
   const [solutionIndex, setSolutionIndex] = useState(0);
   const [animatingQueens, setAnimatingQueens] = useState<Queen[]>([]);
   const [showConfetti, setShowConfetti] = useState(false);
-  const [message, setMessage] = useState(
-    'Place 8 queens so none can attack each other',
-  );
+  const [message, setMessage] = useState(t('status.start'));
   const [messageTone, setMessageTone] = useState<MessageTone>('neutral');
   const [log, setLog] = useState<LogEntry[]>([]);
   const solveTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -29,7 +34,7 @@ export function useQueens() {
     setAnimatingQueens([]);
     setMode('manual');
     setShowConfetti(false);
-    setMessage('Place 8 queens so none can attack each other');
+    setMessage(t('status.start'));
     setMessageTone('neutral');
     setLog([]);
   }, []);
@@ -45,30 +50,36 @@ export function useQueens() {
           prev.filter((q) => !(q.col === col && q.row === row)),
         );
         setMessage(
-          `${queens.length - 1 === 0 ? 'Place 8 queens so none can attack each other' : `${8 - (queens.length - 1)} queens left`}`,
+          queens.length - 1 === 0
+            ? t('status.start')
+            : queensLeftMsg(8 - (queens.length - 1)),
         );
         setMessageTone('neutral');
         setLog((p) => [
           ...p,
-          { text: `–Q${square(col, row)}`, note: 'retired', tone: 'neutral' },
+          {
+            text: `–Q${square(col, row)}`,
+            note: t('log.retired'),
+            tone: 'neutral',
+          },
         ]);
         return;
       }
 
       if (queens.length >= 8) {
-        setMessage('Board is full — remove a queen first');
+        setMessage(t('status.board_full'));
         setMessageTone('warn');
         return;
       }
 
       if (threats[row][col] > 0) {
-        setMessage("Can't place here — this cell is under attack");
+        setMessage(t('status.under_attack'));
         setMessageTone('warn');
         setLog((p) => [
           ...p,
           {
             text: `Q${square(col, row)}??`,
-            note: 'under attack',
+            note: t('log.under_attack'),
             tone: 'warn',
           },
         ]);
@@ -79,7 +90,7 @@ export function useQueens() {
       setQueens(next);
 
       if (next.length === 8) {
-        setMessage('🎉 Solved! All 8 queens are safe!');
+        setMessage(t('status.solved'));
         setMessageTone('win');
         setLog((p) => [
           ...p,
@@ -88,9 +99,7 @@ export function useQueens() {
         setShowConfetti(true);
         setTimeout(() => setShowConfetti(false), 3500);
       } else {
-        setMessage(
-          `${8 - next.length} queen${8 - next.length === 1 ? '' : 's'} left`,
-        );
+        setMessage(queensLeftMsg(8 - next.length));
         setMessageTone('neutral');
         setLog((p) => [
           ...p,
@@ -105,7 +114,7 @@ export function useQueens() {
     (solution: Solution) => {
       clear();
       setMode('solving');
-      setMessage('Solving…');
+      setMessage(t('status.solving'));
       setMessageTone('neutral');
 
       solution.forEach((row, col) => {
@@ -121,7 +130,7 @@ export function useQueens() {
           setAnimatingQueens((prev) => {
             const next = [...prev, { col, row }];
             if (next.length === 8) {
-              setMessage('Solved! All 8 queens are safe!');
+              setMessage(t('status.solved'));
               setMessageTone('win');
               setShowConfetti(true);
               setTimeout(() => setShowConfetti(false), 3500);

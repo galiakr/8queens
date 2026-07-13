@@ -1,4 +1,8 @@
 import { useState } from 'react';
+import { RichText } from './RichText';
+import { t } from '../i18n';
+
+const FACTS = ['edu.fact_92', 'edu.fact_12', 'edu.fact_1848', 'edu.fact_hard'];
 
 export function EducationPanel() {
   const [open, setOpen] = useState(false);
@@ -12,10 +16,10 @@ export function EducationPanel() {
       >
         <span>
           <span className="block font-mono text-[11px] uppercase tracking-[0.18em] text-ink/70">
-            From the archive
+            {t('edu.eyebrow')}
           </span>
           <span className="mt-1 block font-display text-base font-semibold">
-            What is the Eight Queens puzzle?
+            {t('edu.title')}
           </span>
         </span>
         <span aria-hidden="true" className="font-mono text-lg text-ink/70">
@@ -24,48 +28,28 @@ export function EducationPanel() {
       </button>
 
       {open && (
-        <div className="absolute left-0 right-0 top-full z-20 max-h-[70vh] space-y-4 overflow-y-auto rounded-b-sm bg-parchment px-5 pb-5 pt-1 text-sm leading-relaxed text-ink/80 shadow-[0_12px_28px_rgba(0,0,0,0.55)]">
+        <div className="absolute left-0 right-0 top-full z-20 max-h-[70vh] space-y-4 overflow-y-auto rounded-b-sm bg-parchment px-5 pb-5 pt-1 text-sm leading-relaxed text-ink/80 shadow-[0_12px_28px_rgba(0,0,0,0.55)] [&_em]:italic [&_strong]:font-semibold [&_strong]:text-ink">
           <p>
-            The challenge: place <strong className="text-ink">8 queens</strong>{' '}
-            on a chessboard so that no queen can attack any other. A queen
-            attacks every square on her row, column, and both diagonals.
+            <RichText text={t('edu.intro')} />
           </p>
 
           <div className="border-l-2 border-club pl-3">
             <p className="mb-1 font-medium text-ink">
-              How the solver works — backtracking
+              {t('edu.backtracking_title')}
             </p>
             <p>
-              The computer places queens one column at a time. If a position is
-              safe, it tries the next column. If it gets stuck, it{' '}
-              <em>backtracks</em> — removes the last queen and tries a different
-              row. This continues until all 8 queens are placed safely.
+              <RichText text={t('edu.backtracking_body')} />
             </p>
           </div>
 
           <div className="border-l-2 border-brass pl-3">
-            <p className="mb-1 font-medium text-ink">Did you know?</p>
+            <p className="mb-1 font-medium text-ink">{t('edu.facts_title')}</p>
             <ul className="list-inside list-disc space-y-1 marker:text-brass">
-              <li>
-                There are exactly{' '}
-                <strong className="text-ink">92 solutions</strong> to the Eight
-                Queens puzzle
-              </li>
-              <li>
-                If you count rotations and reflections as the same, there are
-                only <strong className="text-ink">12 truly different</strong>{' '}
-                solutions
-              </li>
-              <li>
-                The puzzle was first published in the{' '}
-                <em>Berliner Schachzeitung</em> in{' '}
-                <strong className="text-ink">1848</strong>
-              </li>
-              <li>
-                For an n×n board with n queens, finding solutions gets{' '}
-                <em>very</em> hard as n grows. It's used to teach algorithms in
-                computer science
-              </li>
+              {FACTS.map((key) => (
+                <li key={key}>
+                  <RichText text={t(key)} />
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -76,9 +60,9 @@ export function EducationPanel() {
               rel="noopener noreferrer"
               className="text-club underline underline-offset-2 hover:text-ink"
             >
-              Read more on Wikipedia
+              {t('edu.wikipedia')}
             </a>
-            <span className="italic">Schachzeitung, 1848</span>
+            <span className="italic">{t('edu.attribution')}</span>
           </p>
         </div>
       )}

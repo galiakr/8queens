@@ -1,4 +1,5 @@
 import { Cell } from './Cell';
+import { t } from '../i18n';
 import type { Queen } from '../hooks/useQueens';
 
 const FILES = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
@@ -55,7 +56,7 @@ export function Board({ queens, threats, onCellClick, interactive }: Props) {
         {/* Grid */}
         <div
           role="grid"
-          aria-label="8 queens chess board"
+          aria-label={t('board.aria')}
           className="border border-[#6C7B8B]"
         >
           {Array.from({ length: 8 }, (_, row) => (
