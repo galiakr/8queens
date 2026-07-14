@@ -92,6 +92,15 @@ Read the report and group violations by severity.
 kill %1
 ```
 
+### 6. Log the result
+
+Append one row to `metrics/findings-log.md`: date, project, `a11y`, an outcome
+(`Clean` if the audit found no violations, `Found → Fixed` if you fixed the ones
+you found, `Found — open` if they were left for later), and one sentence naming
+the violation count by severity (e.g. "3 serious color-contrast, 0 critical"). A
+clean run is worth logging too — it's evidence the practice is holding, not
+nothing to report.
+
 ---
 
 ## Output Format

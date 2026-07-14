@@ -15,6 +15,13 @@ You are performing a focused code review of the test files in this project. Your
 
 3. **Report findings** grouped by file, with line numbers where applicable.
 
+4. **Log the result** — append one row to `metrics/findings-log.md`: date,
+   project, `review-tests`, an outcome (`Clean` if no issues, `Found → Fixed` if
+   you fixed them, `Found — open` if they were left for later), and one sentence
+   naming how many test files were reviewed and how many gaps were found (e.g.
+   "reviewed 1 file, found 3 gaps"). A clean run is worth logging too — it's
+   evidence the practice is holding, not nothing to report.
+
 ## Review Criteria
 
 ### Correctness
