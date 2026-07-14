@@ -148,3 +148,13 @@ git push --force-with-lease
 - Use `gh issue list --assignee @me` to see only your issues
 - Use `gh pr list --author @me` to see your own PRs
 - Always confirm the current repo with `gh repo view` before running commands
+
+## Log the result
+
+Every run, append one row to `metrics/findings-log.md`: date, project, `github`,
+an outcome (`Action taken` when the run created, changed, or merged something on
+GitHub; `Clean` for a purely read-only query that changed nothing), and one
+sentence naming what was done with specific counts and refs (e.g. "opened 3
+issues #6–#8", "merged PR #12", or "listed open PRs, none matching"). Keep the
+counts specific rather than "some issues" — round summaries can't be checked
+later, specific ones can.

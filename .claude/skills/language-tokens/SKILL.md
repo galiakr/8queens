@@ -108,6 +108,15 @@ Leave the user with the simple cycle:
 
 If the project has a build step, suggest wiring the generate command into it so JSON is never stale. Offer to add it, but don't assume the build setup — ask.
 
+### Step 6 — Log the result
+
+Append one row to `metrics/findings-log.md`: date, project, `language-tokens`, an
+outcome (`Action taken` if you set up or extended the token store, `Clean` if it
+was already in place and nothing needed doing), and one sentence naming the
+specific numbers — tokens created, strings migrated, and languages (e.g. "45
+tokens, migrated all components, en + he"). A clean run is worth logging too — it's
+evidence the practice is holding, not nothing to report.
+
 ## Notes
 
 - Keep JSON out of manual editing. The CSV is the source of truth; JSON is a build artifact. If the user insists on JSON-only (some coder-heavy teams prefer this), that's fine — the generator's `--to-csv` direction lets non-coders still get a spreadsheet view on demand.
