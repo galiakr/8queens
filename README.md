@@ -1,4 +1,4 @@
-# ♟️ 8 Queens
+# 8 Queens
 
 An interactive React + TypeScript puzzle: place 8 queens on a chessboard so none can attack each other.
 
@@ -20,7 +20,7 @@ An interactive React + TypeScript puzzle: place 8 queens on a chessboard so none
 
 - **Manual play** click to place queens, threatened squares highlight in real time
 - **Animated solver** watch the backtracking algorithm work step by step
-- **All 92 solutions** navigate through every valid arrangement with prev/next
+- **All 92 solutions** navigate through every valid arrangement
 - **Confetti** because solving it deserves a celebration
 - **Learn** collapsible panel explains the puzzle, backtracking, and why there are exactly 92 solutions
 
@@ -55,5 +55,5 @@ This is a rewrite of an [_older vanilla JS version_](https://github.com/galiakr/
 - Vanilla JS → React 18 + TypeScript
 - Single solution → all 92 solutions with navigation
 - Static solver → animated step-by-step
-- No tests → Vitest unit tests for solver and threat map
+- No tests → Vitest unit tests (WIP)
 - Accessibility: keyboard navigation, aria-labels, semantic HTML
