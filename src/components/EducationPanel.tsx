@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { RichText } from './RichText';
+import { AttackDiagram } from './AttackDiagram';
 import { t } from '../i18n';
 
 const FACTS = ['edu.fact_92', 'edu.fact_12', 'edu.fact_1848', 'edu.fact_hard'];
@@ -32,6 +33,8 @@ export function EducationPanel() {
           <p>
             <RichText text={t('edu.intro')} />
           </p>
+
+          <AttackDiagram />
 
           <div className="border-l-2 border-club pl-3">
             <p className="mb-1 font-medium text-ink">

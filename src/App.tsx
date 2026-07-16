@@ -57,7 +57,9 @@ export default function App() {
           </p>
         </div>
         <div className="flex flex-col gap-4">
-          <LanguageSwitcher lang={lang} onChange={changeLang} />
+          <div className="hidden">
+            <LanguageSwitcher lang={lang} onChange={changeLang} />
+          </div>
           <EducationPanel />
         </div>
       </header>

@@ -37,6 +37,8 @@ edu.fact_1848,"Trivia item. *..* italic, **..** bold. Berliner Schachzeitung is 
 edu.fact_hard,Trivia item. *..* = italic,"For an n×n board with n queens, finding solutions gets *very* hard as n grows. It's used to teach algorithms in computer science",
 edu.wikipedia,Link text to the Wikipedia article,Read more on Wikipedia,קראו עוד בוויקיפדיה
 edu.attribution,Attribution line on the archive clipping,"Schachzeitung, 1848",
+edu.diagram_caption,Caption under the attack-directions diagram,"A queen attacks along her row, column, and both diagonals.",
+edu.diagram_alt,"Accessible description of the attack-directions diagram","Diagram of a chessboard with a queen in the centre and arrows radiating outward along its row, column, and both diagonals.",
 board.aria,Accessible name of the board grid,8 queens chess board,לוח שמונה מלכות
 a11y.prev,Aria-label for the previous-solution button,Previous solution,הפתרון הקודם
 a11y.next,Aria-label for the next-solution button,Next solution,הפתרון הבא

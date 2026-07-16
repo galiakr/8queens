@@ -53,7 +53,7 @@ export function Scoresheet({
     'rounded-sm px-3 py-2 font-mono text-xs uppercase tracking-[0.12em] transition-colors disabled:cursor-not-allowed disabled:opacity-40 focus:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2 focus-visible:ring-offset-cream';
 
   return (
-    <div className="rounded-sm bg-cream text-ink shadow-[0_4px_18px_rgba(0,0,0,0.45)] lg:-rotate-[0.4deg]">
+    <div className="rounded-sm bg-cream text-ink shadow-[0_4px_18px_rgba(0,0,0,0.45)]]">
       {/* Sheet header */}
       <div className="flex items-center justify-between px-5 pb-3 pt-4">
         <h2 className="font-mono text-[11px] uppercase tracking-[0.18em] text-ink/70">
